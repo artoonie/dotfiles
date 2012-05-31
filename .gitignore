@@ -3,4 +3,8 @@
 !.screenrc
 !.bashrc
 !.gitignore
+!.mpd
+!.mpdscribble
+!.mpd/mpd.conf
+!.mpdscribble/mpdscribble.conf
 !bin/*
