@@ -113,7 +113,7 @@ fi
 alias u='ssh ksamii@unix.ic.ucsc.edu'
 alias c='ssh samii@login.eecs.berkeley.edu'
 
-############ REMOTE DESKTOP LOGINS ############ 
+############ REMOTE LOGINS ############ 
 # remote 1 - winterm
 alias r1='rdesktop -fu samii -d eecs winterm.eecs.berkeley.edu &'
 # remote 1 external monitor
@@ -122,6 +122,7 @@ alias r1e='rdesktop -g 1595x850 -u samii -d eecs winterm.eecs.berkeley.edu &'
 alias r2='rdesktop -fu samii -d eecs iserver2.eecs.berkeley.edu &'
 # remote 2 external monitor
 alias r2e='rdesktop -g 1595x850 -u samii -d eecs iserver2.eecs.berkeley.edu &'
+alias thrain='ssh samii@thrain.cs.berkeley.edu'
 
 #alias matlab="ssh -o ForwardX11=yes samii@cory.eecs.berkeley.edu /share/b/bin/matlab &"
 alias qt='/opt/qt/bin/qtcreator'
@@ -132,6 +133,5 @@ alias sagi='sudo apt-get install'
 alias pseg="ps -e | grep"
 alias hg="history | grep"
 alias downloaddir="wget -H -r --level=1 -k -p "
-alias toon="artoonie@10.42.43.99:~"
 
 export editor=vim
