@@ -1,0 +1,33 @@
+# escape ^ww
+vbell off # Turns visual bell off
+
+bindkey -k k1 select 1
+bindkey -k k2 select 2
+bindkey -k k3 select 3
+bindkey -k k4 select 4
+bindkey -k k5 select 5
+bindkey -k k6 select 6
+bindkey -k k8 select 7
+bindkey -k k9 select 8
+
+defscrollback 10000
+
+#change the hardstatus settings to give an window list at the bottom of the
+#screen, with the time and date and with the current window highlighted
+hardstatus alwayslastline 
+hardstatus string '%{= kG}%-Lw%{= kW}%50> %n%f* %t%{= kG}%+Lw%< %{= kG}%-=%c:%s%{-}'
+
+# Allow alternate screen for fullscreen apps (e.g. vim)
+altscreen on
+
+shelltitle "$ |bash"
+
+# Get rid of screen 0
+bind c screen 1
+bind 0 select 10
+
+# Create initial window
+screen 1
+
+# Turn off start message:
+startup_message off
