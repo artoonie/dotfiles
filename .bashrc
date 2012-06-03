@@ -6,6 +6,16 @@ source ~/.git_completion.sh
 export PATH=$PATH:~/mitsuba/:~/bin/
 export LD_LIBRARY_PATH=$PATH:~/mitsuba/
 
+# Set the platform globally
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='mac'
+fi
+export platform
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -58,8 +68,7 @@ function jobcount {
    jobs | wc -l | tr -d " "
 }
 cur_tty=$(tty | sed -e "s/.*tty\(.*\)/\1/")
-loadavg=$(uptime | sed -e "s/.*load average: \(.*\...\), \(.*\...\), \(.*\...\)/\1/" -e "s/ //g")
-PS1='\[\033[1;44m\]\[\033[1;34m\]  \[\033[1;40m\] [\u@\h:\w]`echo $(__git_ps1 " (%s)") | sed "s/ //"`\n\[\033[1;44m\]\[\033[1;34m\]  \[\033[1;40m\] [j:`jobcount`, t:$cur_tty, l:$loadavg]\n\[\033[1;46m\]\[\033[1;36m\]  \[\033[1;40m\] [`date +%D` \t] $> \[\033[0;39m\]'
+PS1='\[\033[1;44m\]\[\033[1;34m\]  \[\033[1;40m\] [\u@\h:\w]`echo $(__git_ps1 " (%s)") | sed "s/ //"`\n\[\033[1;44m\]\[\033[1;34m\]  \[\033[1;40m\] [j:`jobcount`, t:$cur_tty]\n\[\033[1;46m\]\[\033[1;36m\]  \[\033[1;40m\] [`date +%D` \t] $> \[\033[0;39m\]'
 
 unset color_prompt force_color_prompt
 
@@ -113,7 +122,7 @@ fi
 alias u='ssh ksamii@unix.ic.ucsc.edu'
 alias c='ssh samii@login.eecs.berkeley.edu'
 
-############ REMOTE LOGINS ############ 
+############ REMOTE DESKTOP LOGINS ############ 
 # remote 1 - winterm
 alias r1='rdesktop -fu samii -d eecs winterm.eecs.berkeley.edu &'
 # remote 1 external monitor
@@ -124,14 +133,20 @@ alias r2='rdesktop -fu samii -d eecs iserver2.eecs.berkeley.edu &'
 alias r2e='rdesktop -g 1595x850 -u samii -d eecs iserver2.eecs.berkeley.edu &'
 alias thrain='ssh samii@thrain.cs.berkeley.edu'
 
-#alias matlab="ssh -o ForwardX11=yes samii@cory.eecs.berkeley.edu /share/b/bin/matlab &"
-alias qt='/opt/qt/bin/qtcreator'
-alias open='gnome-open'
-alias gp='git pull origin master'
-alias rm='trash'
-alias sagi='sudo apt-get install'
-alias pseg="ps -e | grep"
-alias hg="history | grep"
-alias downloaddir="wget -H -r --level=1 -k -p "
+if [[ $platform == 'linux' ]]; then
+    alias open='gnome-open'
+    alias rm='trash'
+elif [[ $platform == 'mac' ]]; then
+    alias rm='rmtrash'
+fi
 
-export editor=vim
+alias downloaddir="wget -H -r --level=1 -k -p "
+alias gca="git commit -a"
+alias gp='git pull origin master'
+alias gpu='git push'
+alias hgp="history | grep"
+alias pseg="ps -e | grep"
+alias pwd="pwd -P"
+alias qt='/opt/qt/bin/qtcreator'
+alias sagi='sudo apt-get install'
+export editor=/usr/bin/vim

@@ -6,6 +6,9 @@ syntax on
 set nocompatible
 set history=1000
 
+set undofile
+set undodir=~/.vim/undo
+
 "A-] - Open the definition in a vertical split
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
