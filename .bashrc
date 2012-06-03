@@ -155,5 +155,8 @@ export editor=/usr/bin/vim
 SYSSCREENRC="" # Don't read the global screenrc
 if [ $SHLVL -eq 1 ]
 then
+    echo "Starting screen."
     screen
+    echo "Screen exited. Quitting outer shell."
+    exit
 fi
