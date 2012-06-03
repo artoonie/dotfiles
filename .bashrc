@@ -149,7 +149,7 @@ alias pseg="ps -e | grep"
 alias pwd="pwd -P"
 alias qt='/opt/qt/bin/qtcreator'
 alias sagi='sudo apt-get install'
-export editor=/usr/bin/vim
+export EDITOR=/usr/bin/vim
 
 # Run screen on start
 SYSSCREENRC="" # Don't read the global screenrc
