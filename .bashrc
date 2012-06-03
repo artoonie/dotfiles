@@ -150,3 +150,10 @@ alias pwd="pwd -P"
 alias qt='/opt/qt/bin/qtcreator'
 alias sagi='sudo apt-get install'
 export editor=/usr/bin/vim
+
+# Run screen on start
+SYSSCREENRC="" # Don't read the global screenrc
+if [ $SHLVL -eq 1 ]
+then
+    screen
+fi
