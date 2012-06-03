@@ -3,7 +3,7 @@
 # for examples
 
 source ~/.git_completion.sh
-export PATH=$PATH:~/mitsuba/:~/bin/
+export PATH=$PATH:~/mitsuba/:~/bin/:/opt/local/bin
 export LD_LIBRARY_PATH=$PATH:~/mitsuba/
 
 # Set the platform globally
