@@ -4,6 +4,7 @@
 !.bashrc
 !.gitignore
 !.gitconfig
+!.git_completion.sh
 !.mpd
 !.mpdscribble
 !.mpd/mpd.conf
