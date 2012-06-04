@@ -3,6 +3,7 @@
 !.screenrc
 !.bashrc
 !.gitignore
+!.gitconfig
 !.mpd
 !.mpdscribble
 !.mpd/mpd.conf
