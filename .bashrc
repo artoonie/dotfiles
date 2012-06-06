@@ -4,6 +4,7 @@
 
 source ~/.git_completion.sh
 export PATH=$PATH:~/mitsuba/:~/bin/:/opt/local/bin
+export CPATH=$CPATH:~/include
 export LD_LIBRARY_PATH=$PATH:~/mitsuba/
 
 # Set the platform globally
@@ -82,7 +83,7 @@ xterm*|rxvt*)
 esac
 
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
+if [ -x /usr/bin/dircolors ] && [ $platform = 'linux' ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
@@ -91,6 +92,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+elif [ $platform = 'mac' ]; then
+    alias ls='ls -G'
 fi
 
 # some more ls aliases
