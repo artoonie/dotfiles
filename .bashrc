@@ -141,6 +141,7 @@ if [[ $platform == 'linux' ]]; then
     alias rm='trash'
 elif [[ $platform == 'mac' ]]; then
     alias rm='rmtrash'
+    alias rgrep='grep -R'
 fi
 
 alias downloaddir="wget -H -r --level=1 -k -p "
@@ -152,6 +153,7 @@ alias pseg="ps -e | grep"
 alias pwd="pwd -P"
 alias qt='/opt/qt/bin/qtcreator'
 alias sagi='sudo apt-get install'
+alias net=' lsof -Pan -i tcp -i udp' # show all listening TCP/UDP ports
 export EDITOR=/usr/bin/vim
 
 # Run screen on start
