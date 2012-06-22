@@ -3,9 +3,11 @@
 # for examples
 
 source ~/.git_completion.sh
-export PATH=$PATH:~/mitsuba/:~/bin/:/opt/local/bin
 export CPATH=$CPATH:~/include
-export LD_LIBRARY_PATH=$PATH:~/mitsuba/
+export PATH=$PATH:~/mitsuba/:~/bin/:/opt/local/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mitsuba/
+export LIBRARY_PATH=$LIBRARY_PATH:~/lib
+export INCLUDE_PATH=$PATH:~/mitsuba/:~/lib
 
 # Set the platform globally
 platform='unknown'
@@ -155,6 +157,7 @@ alias qt='/opt/qt/bin/qtcreator'
 alias sagi='sudo apt-get install'
 alias net=' lsof -Pan -i tcp -i udp' # show all listening TCP/UDP ports
 export EDITOR=/usr/bin/vim
+export THRAIN=samii@thrain.cs.berkeley.edu
 
 # Run screen on start
 SYSSCREENRC="" # Don't read the global screenrc
