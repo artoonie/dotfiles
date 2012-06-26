@@ -3,6 +3,7 @@
 # for examples
 
 source ~/.git_completion.sh
+source ~/.make_completion_wrapper.sh
 export CPATH=$CPATH:~/include
 export PATH=$PATH:~/mitsuba/:~/bin/:/opt/local/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mitsuba/
@@ -156,6 +157,10 @@ alias pwd="pwd -P"
 alias qt='/opt/qt/bin/qtcreator'
 alias sagi='sudo apt-get install'
 alias net=' lsof -Pan -i tcp -i udp' # show all listening TCP/UDP ports
+
+make-completion-wrapper _apt_get _sagi apt-get install
+complete -o filenames -F _sagi sagi
+
 export EDITOR=/usr/bin/vim
 export THRAIN=samii@thrain.cs.berkeley.edu
 

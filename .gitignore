@@ -5,6 +5,7 @@
 !.gitignore
 !.gitconfig
 !.git_completion.sh
+!.make_completion_wrapper.sh
 !.mpd
 !.mpdscribble
 !.mpd/mpd.conf
