@@ -23,6 +23,9 @@ cmap W w
 " Reload .vimrc on write
 autocmd bufwritepost .vimrc source $MYVIMRC
 
+" Comments readable
+hi comment ctermfg=darkcyan 
+
 " Set current statusline to be a different color to make active window more obvious
 "hi StatusLine   ctermfg=34  ctermbg=10 cterm=bold
 "hi StatusLineNC ctermfg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a cterm=none gui=none
