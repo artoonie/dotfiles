@@ -1,5 +1,5 @@
 [user]
-	name = Armin Samii [SH 537]
+	name = Armin Samii [Adobe]
 	email = samii@eecs.berkeley.edu
 [core]
 	editor = vim
@@ -7,5 +7,6 @@
     lol  = log --graph --decorate --pretty=format:\"%C(yellow)%h %Cred%cr %Cblue(%an)%C(white)%d%Creset %s\" --abbrev-commit
     lola = log --graph --decorate --pretty=format:\"%C(yellow)%h %Cred%cr %Cblue(%an)%C(white)%d%Creset %s\" --abbrev-commit --all
     lola80 = log --graph --decorate --pretty=format:\"%C(yellow)%h %Cred%cr %Cblue(%an)%C(white)%d%Creset%n        %s\" --abbrev-commit --all
+    ll  = log --graph --decorate --pretty=format:\"%C(yellow)%h %Cred%cr %C(magenta)(%an)%C(white)%d%Creset %C(cyan)%s%Creset%n%b\" --abbrev-commit --all
 [color]
     ui = auto
