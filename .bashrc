@@ -143,8 +143,8 @@ alias r2e='rdesktop -g 1595x850 -u samii -d eecs iserver2.eecs.berkeley.edu &'
 alias thrain='ssh samii@thrain.cs.berkeley.edu'
 
 if [[ $platform == 'linux' ]]; then
-    alias open='gnome-open'
-    alias rm='trash'
+    alias open='xdg-open'
+    alias rm='trash-put'
 elif [[ $platform == 'mac' ]]; then
     alias rm='rmtrash'
     alias rgrep='grep -R'
@@ -162,7 +162,7 @@ alias qt='/opt/qt/bin/qtcreator'
 alias sagi='sudo apt-get install'
 alias net=' lsof -Pan -i tcp -i udp' # show all listening TCP/UDP ports
 alias mcm='make clean && make'
-alias ga='gdb --args'
+alias ga='make debug && gdb --args'
 alias latexloop='latexmk -pvc -pdf'
 alias RR='make && time ./crop'
 alias DD='make debug && gdb --args ./dcrop'
