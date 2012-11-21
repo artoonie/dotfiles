@@ -5,11 +5,13 @@
 source ~/.git_completion.sh
 source ~/.make_completion_wrapper.sh
 
-export PATH=$PATH:~/mitsuba:~/bin:/opt/local/bin:/usr/local/sbin
-export CPATH=$CPATH:~/include
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mitsuba
-export LIBRARY_PATH=$LIBRARY_PATH:~/lib
-export INCLUDE_PATH=$PATH:~/mitsuba/:~/lib
+export PATH=$PATH:~/mitsuba:~/bin:/opt/local/bin:/usr/local/sbin:/Applications/MATLAB_R2012a.app/bin/maci64:/Applications/MATLAB_R2012a.app/sys/os/maci64
+export CPATH=$CPATH:~/include:/opt/local/include
+export DYLD_LIBRARY_PATH=DYLD_LIBRARY_PATH:/Applications/MATLAB_R2012a.app/bin/maci64/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mitsuba:/usr/lib
+export LIBRARY_PATH=$LIBRARY_PATH:~/lib:/usr/lib:/opt/local/lib
+export INCLUDE_PATH=$INCLUDE_PATH:/opt/local/include
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/local/lib/pkgconfig
 
 # Set the platform globally
 platform='unknown'
@@ -149,6 +151,7 @@ elif [[ $platform == 'mac' ]]; then
 fi
 
 alias downloaddir="wget -H -r --level=1 -k -p "
+alias gc='git commit'
 alias gca="git commit -a"
 alias gp='git pull origin master'
 alias gpu='git push'
@@ -158,8 +161,17 @@ alias pwd="pwd -P"
 alias qt='/opt/qt/bin/qtcreator'
 alias sagi='sudo apt-get install'
 alias net=' lsof -Pan -i tcp -i udp' # show all listening TCP/UDP ports
+alias mcm='make clean && make'
+alias ga='gdb --args'
+alias latexloop='latexmk -pvc -pdf'
+alias RR='make && time ./crop'
+alias DD='make debug && gdb --args ./dcrop'
+alias vim='mvim -v' # To prevent vim bug
+alias matlab='/Applications/MATLAB_R2012a.app/bin/matlab -nosplash -nodesktop'
+alias htopc='htop --sort-key PERCENT_CPU'
 export WHOAMI=$(whoami)
 alias whoami='echo "You are $WHOAMI, and my do you look good today."'
+source ~/.bashlexusalias
 
 make-completion-wrapper _apt_get _sagi apt-get install
 complete -o filenames -F _sagi sagi

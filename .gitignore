@@ -4,6 +4,7 @@
 !.screenrc
 !.bashrc
 !.gitignore
+!.gitignore_global
 !.gitconfig
 !.git_completion.sh
 !.make_completion_wrapper.sh

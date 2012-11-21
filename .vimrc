@@ -6,6 +6,7 @@ set shiftwidth=4
 syntax on
 set nocompatible
 set history=1000
+set formatoptions+=r
 
 set undofile
 set undodir=~/.vim/undo
@@ -18,7 +19,6 @@ let mapleader = "."
 " Because I have high unshift latency
 map H h
 map L l
-cmap W w
 
 " Reload .vimrc on write
 autocmd bufwritepost .vimrc source $MYVIMRC
@@ -26,9 +26,23 @@ autocmd bufwritepost .vimrc source $MYVIMRC
 " Comments readable
 hi comment ctermfg=darkcyan 
 
-" Set current statusline to be a different color to make active window more obvious
-"hi StatusLine   ctermfg=34  ctermbg=10 cterm=bold
-"hi StatusLineNC ctermfg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a cterm=none gui=none
+" Make active window more obvious
+hi StatusLine   ctermfg=0 ctermbg=6 cterm=bold
+hi StatusLineNC ctermfg=0 ctermbg=2 cterm=none
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
+augroup END
+
+if has("autocmd")
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
+  " ...
+endif
 
 " VISUAL SELECTION SUBSTITUTION, from Jeremy Cantrell, Peter Odding, and Bryan Kennedy @ StackOverflow
 " Escape special characters in a string for exact matching.

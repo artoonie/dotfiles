@@ -3,6 +3,7 @@
 	email = samii@eecs.berkeley.edu
 [core]
 	editor = vim
+	excludesfile = /Users/artoonie/.gitignore_global
 [alias]
     lol  = log --graph --decorate --pretty=format:\"%C(yellow)%h %Cred%cr %Cblue(%an)%C(white)%d%Creset %s\" --abbrev-commit
     lola = log --graph --decorate --pretty=format:\"%C(yellow)%h %Cred%cr %Cblue(%an)%C(white)%d%Creset %s\" --abbrev-commit --all
