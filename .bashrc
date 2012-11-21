@@ -176,8 +176,6 @@ elif [[ $platform == 'mac' ]]; then
     alias matlab='/Applications/MATLAB_R2012a.app/bin/matlab -nosplash -nodesktop'
 fi
 
-# Utils
-
 # Changing what a basic command does
 alias pwd="pwd -P"
 alias vim='mvim -v' # To prevent vim bug
@@ -185,6 +183,10 @@ alias vim='mvim -v' # To prevent vim bug
 # Lol just because
 export WHOAMI=$(whoami)
 alias whoami='echo "You are $WHOAMI, and my do you look good today."'
+
+if [[ -e '~/.bashlexusalias' ]]; then
+    source ~/.bashlexusalias
+fi
 
 # Make 'sagi' have tab-completion
 make-completion-wrapper _apt_get _sagi apt-get install
@@ -201,5 +203,4 @@ then
     echo "Starting screen."
     screen
     echo "Screen exited. Quitting outer shell."
-    exit
 fi
