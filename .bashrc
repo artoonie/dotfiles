@@ -8,7 +8,7 @@ source ~/.make_completion_wrapper.sh
 export PATH=$PATH:~/mitsuba:~/bin:/opt/local/bin:/usr/local/sbin:/Applications/MATLAB_R2012a.app/bin/maci64:/Applications/MATLAB_R2012a.app/sys/os/maci64
 export CPATH=$CPATH:~/include:/opt/local/include
 export DYLD_LIBRARY_PATH=DYLD_LIBRARY_PATH:/Applications/MATLAB_R2012a.app/bin/maci64/
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mitsuba:/usr/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mitsuba:/usr/lib:/usr/local/MATLAB/R2012b/bin/glnxa64
 export LIBRARY_PATH=$LIBRARY_PATH:~/lib:/usr/lib:/opt/local/lib
 export INCLUDE_PATH=$INCLUDE_PATH:/opt/local/include
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/local/lib/pkgconfig
@@ -150,32 +150,47 @@ elif [[ $platform == 'mac' ]]; then
     alias rgrep='grep -R'
 fi
 
+# Utils
 alias downloaddir="wget -H -r --level=1 -k -p "
+alias net=' lsof -Pan -i tcp -i udp' # show all listening TCP/UDP ports
+alias latexloop='latexmk -pvc -pdf'
+
+# Make & run
+alias gp='git pull origin master'
+alias ga='make debug && gdb --args'
+alias RR='make && time ./crop'
+alias DD='make debug && gdb --args ./dcrop'
+alias mcm='make clean && make'
+
+# Shortcuts
 alias gc='git commit'
 alias gca="git commit -a"
-alias gp='git pull origin master'
 alias gpu='git push'
 alias hgp="history | grep"
 alias pseg="ps -e | grep"
-alias pwd="pwd -P"
-alias qt='/opt/qt/bin/qtcreator'
 alias sagi='sudo apt-get install'
-alias net=' lsof -Pan -i tcp -i udp' # show all listening TCP/UDP ports
-alias mcm='make clean && make'
-alias ga='make debug && gdb --args'
-alias latexloop='latexmk -pvc -pdf'
-alias RR='make && time ./crop'
-alias DD='make debug && gdb --args ./dcrop'
-alias vim='mvim -v' # To prevent vim bug
-alias matlab='/Applications/MATLAB_R2012a.app/bin/matlab -nosplash -nodesktop'
 alias htopc='htop --sort-key PERCENT_CPU'
+if [[ $platform == 'linux' ]]; then
+    alias matlab='/usr/local/MATLAB/R2012b/bin/matlab -nosplash -nodesktop'
+elif [[ $platform == 'mac' ]]; then
+    alias matlab='/Applications/MATLAB_R2012a.app/bin/matlab -nosplash -nodesktop'
+fi
+
+# Utils
+
+# Changing what a basic command does
+alias pwd="pwd -P"
+alias vim='mvim -v' # To prevent vim bug
+
+# Lol just because
 export WHOAMI=$(whoami)
 alias whoami='echo "You are $WHOAMI, and my do you look good today."'
-source ~/.bashlexusalias
 
+# Make 'sagi' have tab-completion
 make-completion-wrapper _apt_get _sagi apt-get install
 complete -o filenames -F _sagi sagi
 
+# Environment vars
 export EDITOR=/usr/bin/vim
 export THRAIN=samii@thrain.cs.berkeley.edu
 
