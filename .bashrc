@@ -5,13 +5,13 @@
 source ~/.git_completion.sh
 source ~/.make_completion_wrapper.sh
 
-export PATH=$PATH:~/mitsuba:~/bin:/opt/local/bin:/usr/local/sbin:/Applications/MATLAB_R2012a.app/bin/maci64:/Applications/MATLAB_R2012a.app/sys/os/maci64
-export CPATH=$CPATH:~/include:/opt/local/include
-export DYLD_LIBRARY_PATH=DYLD_LIBRARY_PATH:/Applications/MATLAB_R2012a.app/bin/maci64/
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mitsuba:/usr/lib:/usr/local/MATLAB/R2012b/bin/glnxa64
-export LIBRARY_PATH=$LIBRARY_PATH:~/lib:/usr/lib:/opt/local/lib
-export INCLUDE_PATH=$INCLUDE_PATH:/opt/local/include
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/local/lib/pkgconfig
+# export PATH=$PATH:~/mitsuba:~/bin:/opt/local/bin:/usr/local/sbin:/Applications/MATLAB_R2012a.app/bin/maci64:/Applications/MATLAB_R2012a.app/sys/os/maci64
+# export CPATH=$CPATH:~/include:/opt/local/include
+# export DYLD_LIBRARY_PATH=DYLD_LIBRARY_PATH:/Applications/MATLAB_R2012a.app/bin/maci64/
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mitsuba:/usr/lib:/usr/local/MATLAB/R2012b/bin/glnxa64
+# export LIBRARY_PATH=$LIBRARY_PATH:~/lib:/usr/lib:/opt/local/lib
+# export INCLUDE_PATH=$INCLUDE_PATH:/opt/local/include
+# export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/local/lib/pkgconfig
 
 # Set the platform globally
 platform='unknown'
@@ -173,7 +173,7 @@ alias htopc='htop --sort-key PERCENT_CPU'
 if [[ $platform == 'linux' ]]; then
     alias matlab='/usr/local/MATLAB/R2012b/bin/matlab -nosplash -nodesktop'
 elif [[ $platform == 'mac' ]]; then
-    alias matlab='/Applications/MATLAB_R2012a.app/bin/matlab -nosplash -nodesktop'
+    alias matlab='/Applications/MATLAB_R2013a.app/bin/matlab -nosplash -nodesktop'
 fi
 
 # Changing what a basic command does
