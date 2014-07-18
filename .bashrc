@@ -206,3 +206,6 @@ then
     screen
     echo "Screen exited. Quitting outer shell."
 fi
+
+# Easier to read LS on black background
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
