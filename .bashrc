@@ -5,13 +5,9 @@
 source ~/.git_completion.sh
 source ~/.make_completion_wrapper.sh
 
-# export PATH=$PATH:~/mitsuba:~/bin:/opt/local/bin:/usr/local/sbin:/Applications/MATLAB_R2012a.app/bin/maci64:/Applications/MATLAB_R2012a.app/sys/os/maci64
-# export CPATH=$CPATH:~/include:/opt/local/include
-# export DYLD_LIBRARY_PATH=DYLD_LIBRARY_PATH:/Applications/MATLAB_R2012a.app/bin/maci64/
-# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mitsuba:/usr/lib:/usr/local/MATLAB/R2012b/bin/glnxa64
-# export LIBRARY_PATH=$LIBRARY_PATH:~/lib:/usr/lib:/opt/local/lib
-# export INCLUDE_PATH=$INCLUDE_PATH:/opt/local/include
-# export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/local/lib/pkgconfig
+# THIS SUCKS should be only in bash_profile
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/MATLAB/R2012b/bin/glnxa64/
 
 # Set the platform globally
 platform='unknown'
@@ -170,8 +166,10 @@ alias hgp="history | grep"
 alias pseg="ps -e | grep"
 alias sagi='sudo apt-get install'
 alias htopc='htop --sort-key PERCENT_CPU'
+alias htopm='htop --sort-key PERCENT_MEM'
 if [[ $platform == 'linux' ]]; then
     alias matlab='/usr/local/MATLAB/R2012b/bin/matlab -nosplash -nodesktop'
+    alias matlabgui='/usr/local/MATLAB/R2012b/bin/matlab'
 elif [[ $platform == 'mac' ]]; then
     alias matlab='/Applications/MATLAB_R2013a.app/bin/matlab -nosplash -nodesktop'
 fi
@@ -197,6 +195,7 @@ complete -o filenames -F _sagi sagi
 # Environment vars
 export EDITOR=/usr/bin/vim
 export THRAIN=samii@thrain.cs.berkeley.edu
+export ELESSAR=samii@dhcp-36-64.eecs.berkeley.edu
 
 # Run screen on start
 SYSSCREENRC="" # Don't read the global screenrc

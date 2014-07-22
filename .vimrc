@@ -7,6 +7,7 @@ syntax on
 set nocompatible
 set history=1000
 set formatoptions+=r
+set nohls
 
 set undofile
 set undodir=~/.vim/undo
