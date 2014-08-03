@@ -12,3 +12,5 @@
     ll  = log --graph --decorate --pretty=format:\"%C(yellow)%h %Cred%cr %C(magenta)(%an)%C(white)%d%Creset%n%C(cyan)%s%n%Creset%n%b\" --abbrev-commit --all
 [color]
     ui = auto
+[push]
+	default = matching
