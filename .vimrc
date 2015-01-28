@@ -7,9 +7,11 @@ syntax on
 set nocompatible
 set history=1000
 set formatoptions+=r
+set nocursorline
 
 set undofile
 set undodir=~/.vim/undo
+set term=builtin_ansi
 
 set backspace=indent,eol,start
 fixdel
@@ -19,6 +21,11 @@ let mapleader = "."
 " Because I have high unshift latency
 map H h
 map L l
+
+map <leader>gf :vs <cfile><cr>
+
+" pathogen
+execute pathogen#infect()
 
 " Reload .vimrc on write
 autocmd bufwritepost .vimrc source $MYVIMRC
@@ -83,3 +90,9 @@ endfunction
 
 " Start the find and replace command across the entire file
 vmap <leader>s <Esc>:%s/<c-r>=GetVisual()<cr>/
+
+" ctags location
+set tags=./tags,tags;$HOME
+
+" Periodically save the session
+autocmd CursorHold * mksession! .session.vim

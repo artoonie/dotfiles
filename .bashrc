@@ -95,11 +95,13 @@ if [ -x /usr/bin/dircolors ] && [ $platform = 'linux' ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    alias grep='grep --color=auto -s'
+    alias fgrep='fgrep --color=auto -s'
+    alias egrep='egrep --color=auto -s'
 elif [ $platform = 'mac' ]; then
+    alias grep='grep -s'
     alias ls='ls -G'
+    alias ctags="`brew --prefix`/bin/ctags"
 fi
 
 # some more ls aliases
@@ -166,10 +168,17 @@ alias mcm='make clean && make'
 alias gc='git commit'
 alias gca="git commit -a"
 alias gpu='git push'
+alias gspp='git stash && git pull && git stash pop'
 alias hgp="history | grep"
 alias pseg="ps -e | grep"
 alias sagi='sudo apt-get install'
 alias htopc='htop --sort-key PERCENT_CPU'
+alias htopm='htop --sort-key PERCENT_MEM'
+alias findf='find . -name'
+
+# grepr: recursively grep all non-binary files, case-insensitively, in the current directory
+grepr() { grep -iIR "$1" . ; }
+
 if [[ $platform == 'linux' ]]; then
     alias matlab='/usr/local/MATLAB/R2012b/bin/matlab -nosplash -nodesktop'
 elif [[ $platform == 'mac' ]]; then
@@ -202,9 +211,9 @@ export THRAIN=samii@thrain.cs.berkeley.edu
 SYSSCREENRC="" # Don't read the global screenrc
 if [ $SHLVL -eq 1 ]
 then
-    echo "Starting screen."
-    screen
-    echo "Screen exited. Quitting outer shell."
+    echo "Starting tmux"
+    tmux
+    echo "tmux exited. Quitting outer shell."
 fi
 
 # Easier to read LS on black background
