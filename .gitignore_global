@@ -22,11 +22,8 @@ Thumbs.db
 *.aux
 *.log
 *.pdf
-*.bbl
-*.blg
 
 #########################
 # Misc
 #########################
 .gdb_history
-*.mexa64
