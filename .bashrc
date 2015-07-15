@@ -178,6 +178,8 @@ alias findf='find . -name'
 
 # grepr: recursively grep all non-binary files, case-insensitively, in the current directory
 grepr() { grep -iIR "$1" . ; }
+# grepr2: like grepr, but only two directories deep
+grepr2() { grep -iI "$1" * */*  ; }
 
 if [[ $platform == 'linux' ]]; then
     alias matlab='/usr/local/MATLAB/R2012b/bin/matlab -nosplash -nodesktop'

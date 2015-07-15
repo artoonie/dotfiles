@@ -21,6 +21,7 @@ let mapleader = "."
 " Because I have high unshift latency
 map H h
 map L l
+command! W write
 
 map <leader>gf :vs <cfile><cr>
 
@@ -31,7 +32,7 @@ execute pathogen#infect()
 autocmd bufwritepost .vimrc source $MYVIMRC
 
 " Comments readable
-hi comment ctermfg=darkcyan 
+hi comment ctermfg=darkcyan ctermbg=black
 
 " Make active window more obvious
 hi StatusLine   ctermfg=0 ctermbg=6 cterm=bold
@@ -48,6 +49,7 @@ if has("autocmd")
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
   filetype plugin indent on
+  filetype plugin on
   " ...
 endif
 
@@ -94,5 +96,5 @@ vmap <leader>s <Esc>:%s/<c-r>=GetVisual()<cr>/
 " ctags location
 set tags=./tags,tags;$HOME
 
-" Periodically save the session
-autocmd CursorHold * mksession! .session.vim
+" Periodically save the session, if there are more than one windows open
+autocmd CursorHold * if winbufnr(2)!=-1 |  mksession! .session.vim
