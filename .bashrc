@@ -165,10 +165,14 @@ alias DD='make debug && gdb --args ./dcrop'
 alias mcm='make clean && make'
 
 # Shortcuts
+alias gf='git fetch'
 alias gc='git commit'
 alias gca="git commit -a"
 alias gpu='git push'
+alias gpnb='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)' # git push new branch
 alias gspp='git stash && git pull && git stash pop'
+alias gcm='git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d' # git clean merged branches
+gg() { git checkout $1 && git pull --ff-only origin $1  ; } # git get: checkout and grab latest
 alias hgp="history | grep"
 alias pseg="ps -e | grep"
 alias sagi='sudo apt-get install'
@@ -176,6 +180,8 @@ alias htopc='htop --sort-key PERCENT_CPU'
 alias htopm='htop --sort-key PERCENT_MEM'
 alias findf='find . -name'
 
+# find
+findr() { find . -name $1 ; }
 # grepr: recursively grep all non-binary files, case-insensitively, in the current directory
 grepr() { grep -iIR "$1" . ; }
 # grepr2: like grepr, but only two directories deep
