@@ -172,6 +172,7 @@ alias gpu='git push'
 alias gpnb='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)' # git push new branch
 alias gspp='git stash && git pull && git stash pop'
 alias gcm='git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d' # git clean merged branches
+alias grhh='git reset --hard HEAD'
 gg() { git checkout $1 && git pull --ff-only origin $1  ; } # git get: checkout and grab latest
 alias hgp="history | grep"
 alias pseg="ps -e | grep"
