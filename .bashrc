@@ -196,9 +196,6 @@ fi
 
 # Changing what a basic command does
 alias pwd="pwd -P"
-if [[ $platform == 'mac' ]]; then
-    alias vim='mvim -v' # To prevent vim bug
-fi
 
 # Lol just because
 export WHOAMI=$(whoami)
