@@ -7,8 +7,14 @@
 # (To get that far on a mac, you'll be prompted to install xcode commmand line tools)
 # Then, run this script
 
+# Die on any error
+set -e
+
 # Set up bash_profile
 echo "source ~/.bashrc" >>  ~/.bash_profile
+
+# Set up vim undo directory
+mkdir -p .vim/undo
 
 # Install homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
