@@ -1,17 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 source ~/.git_completion.sh
 source ~/.make_completion_wrapper.sh
-
-# export PATH=$PATH:~/mitsuba:~/bin:/opt/local/bin:/usr/local/sbin:/Applications/MATLAB_R2012a.app/bin/maci64:/Applications/MATLAB_R2012a.app/sys/os/maci64
-# export CPATH=$CPATH:~/include:/opt/local/include
-# export DYLD_LIBRARY_PATH=DYLD_LIBRARY_PATH:/Applications/MATLAB_R2012a.app/bin/maci64/
-# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mitsuba:/usr/lib:/usr/local/MATLAB/R2012b/bin/glnxa64
-# export LIBRARY_PATH=$LIBRARY_PATH:~/lib:/usr/lib:/opt/local/lib
-# export INCLUDE_PATH=$INCLUDE_PATH:/opt/local/include
-# export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/local/lib/pkgconfig
 
 # Set the platform globally
 platform='unknown'
@@ -92,8 +82,6 @@ esac
 if [ -x /usr/bin/dircolors ] && [ $platform = 'linux' ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto -s'
     alias fgrep='fgrep --color=auto -s'
@@ -114,42 +102,16 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
-# Custom stuff
-alias u='ssh ksamii@unix.ic.ucsc.edu'
-alias c='ssh samii@login.eecs.berkeley.edu'
-
-############ REMOTE DESKTOP LOGINS ############ 
-# remote 1 - winterm
-alias r1='rdesktop -fu samii -d eecs winterm.eecs.berkeley.edu &'
-# remote 1 external monitor
-alias r1e='rdesktop -g 1595x850 -u samii -d eecs winterm.eecs.berkeley.edu &'
-# remote 2 - iserver2
-alias r2='rdesktop -fu samii -d eecs iserver2.eecs.berkeley.edu &'
-# remote 2 external monitor
-alias r2e='rdesktop -g 1595x850 -u samii -d eecs iserver2.eecs.berkeley.edu &'
-alias thrain='ssh samii@thrain.cs.berkeley.edu'
 
 if [[ $platform == 'linux' ]]; then
     alias open='xdg-open'
     alias rm='trash-put'
 elif [[ $platform == 'mac' ]]; then
     alias rm='rmtrash'
-    alias rgrep='grep -R'
 fi
 
 # Utils
@@ -157,14 +119,8 @@ alias downloaddir="wget -H -r --level=1 -k -p "
 alias net=' lsof -Pan -i tcp -i udp' # show all listening TCP/UDP ports
 alias latexloop='latexmk -pvc -pdf'
 
-# Make & run
-alias gp='git pull origin master'
-alias ga='make debug && gdb --args'
-alias RR='make && time ./crop'
-alias DD='make debug && gdb --args ./dcrop'
-alias mcm='make clean && make'
-
-# Shortcuts
+# Git Shortcuts
+alias gp='git pull'
 alias gf='git fetch'
 alias gc='git commit'
 alias gca="git commit -a"
@@ -173,7 +129,12 @@ alias gpnb='git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)' #
 alias gspp='git stash && git pull && git stash pop'
 alias gcm='git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d' # git clean merged branches
 alias grhh='git reset --hard HEAD'
+alias gsp='git stash pop'
+alias gco='git checkout'
 gg() { git checkout $1 && git pull --ff-only origin $1  ; } # git get: checkout and grab latest
+
+# Other shortcuts
+alias mcm='make clean && make'
 alias hgp="history | grep"
 alias pseg="ps -e | grep"
 alias sagi='sudo apt-get install'
@@ -194,12 +155,8 @@ elif [[ $platform == 'mac' ]]; then
     alias matlab='/Applications/MATLAB_R2013a.app/bin/matlab -nosplash -nodesktop'
 fi
 
-# Changing what a basic command does
+# pwd -P: "Display the physical current working directory (all symbolic links resolved)."
 alias pwd="pwd -P"
-
-# Lol just because
-export WHOAMI=$(whoami)
-alias whoami='echo "You are $WHOAMI, and my do you look good today."'
 
 if [[ -e '~/.bashlexusalias' ]]; then
     source ~/.bashlexusalias
@@ -211,9 +168,8 @@ complete -o filenames -F _sagi sagi
 
 # Environment vars
 export EDITOR=/usr/bin/vim
-export THRAIN=samii@thrain.cs.berkeley.edu
 
-# Run screen on start
+# Run tmux on start
 SYSSCREENRC="" # Don't read the global screenrc
 if [ $SHLVL -eq 1 ]
 then
