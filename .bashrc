@@ -133,6 +133,12 @@ alias gsp='git stash pop'
 alias gco='git checkout'
 gg() { git checkout $1 && git pull --ff-only origin $1  ; } # git get: checkout and grab latest
 
+# Conveniences for gwih
+alias gcb='git rev-parse --abbrev-ref HEAD' # git current branch
+alias gid='if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]]; then echo "DIRTY"; else echo "CLEAN"; fi' # git is dirty?
+alias gip='if [[ $(git diff origin/$(gcb)) != "" ]]; then echo "NOT YET PUSHED "; else echo "HAS BEEN PUSHED"; fi' # git is pushed?
+alias gwih='for i in *; do cd $i && echo "$(gid) | $(gip) :: $i @ $(gcb)" && cd ..; done' # git what is here? check each subdir
+
 # Other shortcuts
 alias mcm='make clean && make'
 alias hgp="history | grep"
@@ -148,6 +154,8 @@ findr() { find . -name $1 ; }
 grepr() { grep -iIR "$1" . ; }
 # grepr2: like grepr, but only two directories deep
 grepr2() { grep -iI "$1" * */*  ; }
+# python function count
+pfc() { for i in $(grep -o  "def [^(]*" $1 | sed -e "s/def //"); do echo $(grep -c $i $1) $i; done }
 
 if [[ $platform == 'linux' ]]; then
     alias matlab='/usr/local/MATLAB/R2012b/bin/matlab -nosplash -nodesktop'
