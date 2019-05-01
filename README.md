@@ -3,7 +3,7 @@ To terraform your machine:
 On mac:
 
 1. Download homebrew
-2. brew install git tmux
+2. brew install git tmux the_silver_searcher
 2. In terminal preferences:
     - Change Profile to Homebrew (hit "Default", don't just select it) 
     - In the "Shell" tab, change "Run Command" to run `tmux`
@@ -16,3 +16,5 @@ mv dotfiles/{.*,*} . # hit 'n' to not override '..'
 rmdir dotfiles
 mkdir -p .vim/undo
 ```
+On linux:
+sudo apt-get install the_silver_searcher

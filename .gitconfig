@@ -1,6 +1,5 @@
 [user]
 	name = Armin Samii
-	email = asamii@adobe.com
 [core]
 	editor = vim
 	excludesfile = /Users/asamii/.gitignore_global
@@ -25,3 +24,5 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+[credential]
+	helper = store
