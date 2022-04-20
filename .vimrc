@@ -25,14 +25,15 @@ command! W write
 
 map <leader>gf :vs <cfile><cr>
 
-" pathogen
-execute pathogen#infect()
-
 " Reload .vimrc on write
 autocmd bufwritepost .vimrc source $MYVIMRC
 
 " Comments readable
 hi comment ctermfg=darkcyan ctermbg=black
+
+" Menu background
+hi Pmenu ctermbg=gray
+
 
 " Make active window more obvious
 hi StatusLine   ctermfg=0 ctermbg=6 cterm=bold
@@ -117,3 +118,12 @@ autocmd CursorHold * if winbufnr(2)!=-1 |  mksession! .session.vim
     " JK motions: Line motions
     map <Leader>j <Plug>(easymotion-j)
     map <Leader>k <Plug>(easymotion-k)
+
+
+call plug#begin('~/.vim/plugged')
+Plug 'OmniSharp/omnisharp-vim'
+"Plug 'valloric/youcompleteme'
+"Plug 'dense-analysis/ale'
+Plug 'scrooloose/syntastic'
+call plug#end()
+let g:OmniSharp_server_use_mono = 1

@@ -1,8 +1,9 @@
 [user]
 	name = Armin Samii
+	email = armin.samii@gmail.com
 [core]
 	editor = vim
-	excludesfile = /Users/asamii/.gitignore_global
+	excludesfile = /Users/artoonie/.gitignore_global
 [alias]
     lol = log --graph --decorate --pretty=format:\"%C(yellow)%h %Cred%cr %Cblue(%an)%C(white)%d%Creset %s\" --abbrev-commit
     lola = log --graph --decorate --pretty=format:\"%C(yellow)%h %Cred%cr %Cblue(%an)%C(white)%d%Creset %s\" --abbrev-commit --all
@@ -21,8 +22,13 @@
 [push]
 	default = simple
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 [credential]
-	helper = store
+	helper = cache --timeout=3600
+[lfs]
+	cachecredentials = true
+[init]
+	defaultBranch = main

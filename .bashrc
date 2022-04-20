@@ -111,7 +111,7 @@ if [[ $platform == 'linux' ]]; then
     alias open='xdg-open'
     alias rm='trash-put'
 elif [[ $platform == 'mac' ]]; then
-    alias rm='rmtrash'
+    alias rm='trash'
 fi
 
 # Utils
@@ -186,3 +186,7 @@ fi
 
 # Easier to read LS on black background
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
