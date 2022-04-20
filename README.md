@@ -8,13 +8,11 @@ On mac:
     - Change Profile to Homebrew (hit "Default", don't just select it) 
     - In the "Shell" tab, change "Run Command" to run `tmux`
     - In the "Shell" tab, change "When the shell exits" to "if exited cleanly"
-3. Run 
-
-```bash
-git clone git@github.com:artoonie/dotfiles.git
-mv dotfiles/{.*,*} . # hit 'n' to not override '..'
-rmdir dotfiles
-mkdir -p .vim/undo
+3. Clone this repo into your root:
 ```
-On linux:
+git init
+git remote add origin https://github.com/artoonie/dotfiles.git
+git pull origin main
+```
+4. On mac, run ./new-machine-installation.sh
 sudo apt-get install the_silver_searcher
