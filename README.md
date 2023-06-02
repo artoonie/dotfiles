@@ -18,4 +18,4 @@ git pull origin main
 
 On Linux:
 
-sudo apt-get install the_silver_searcher
+sudo apt-get install silversearcher-ag git vim tmux trash-cli
