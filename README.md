@@ -2,7 +2,7 @@ To terraform your machine:
 
 On mac:
 
-1. Download homebrew
+1. Download [homebrew](https://brew.sh)
 2. brew install git git-lfs tmux the_silver_searcher
 2. In terminal preferences:
     - Change Profile to Homebrew (hit "Default", don't just select it) 
@@ -14,7 +14,7 @@ git init
 git remote add origin https://github.com/artoonie/dotfiles.git
 git pull origin main
 ```
-4. On mac, run ./new-machine-installation.sh
+4. On mac, run `./.new-machine-installation.sh`
 
 On Linux:
 
